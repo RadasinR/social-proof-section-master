@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap');
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* CUSTOME PROPERTYES */
+
+:root {
+    /* COLORS */
+    /* primary */
+
+    --VeryDarkMagenta: hsl(300, 43%, 22%);
+    --SoftPink: hsl(333, 80%, 67%);
+
+    /* neutral */
+
+    --DarkGrayishMagenta: hsl(303, 10%, 53%);
+    --LightGrayishMagenta: hsl(300, 24%, 96%);
+    --White: hsl(0, 0%, 100%);
+
+    /* TYPOGRAPHY */
+    --FS: 0.95rem;
+    --FSB: 1.1rem;
+    --FF: 'League Spartan', sans-serif;
+    --BOLD: 500;
+    --BOLDER: 700;
+
+    /* Offset for stairs effect */
+    --offset: 3rem;
+    --offsetColumns: 0.9rem;
+}
+
+/* GENERAL */
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0rem;
+    padding: 10% 0;
+    min-height: 100vh;
+    font-family: var(--FF);
+    font-size: var(--FS);
+
+    background-image: url("/images/bg-pattern-top-mobile.svg"), url("/images/bg-pattern-bottom-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: left top, right bottom;
+    background-size: 50%, 50%;
+}
+
+/* utils */
+
+.grid {
+    display: grid;
+    gap: 5rem;
+    width: 90%;
+    margin-top: 10%;
+   justify-items: center;
+}
+
+.rows {
+    display: grid;
+    width: 100%;
+    height: fit-content;
+    gap: 1.5rem;
+    justify-items: center;
+}
+
+.columns {
+    display: grid;
+    height: fit-content;
+    gap: 1.5rem;
+    justify-items: center;
+}
+
+.bg-purple {
+    background-color: var(--VeryDarkMagenta);
+    color: var(--White);
+}
+
+.bg-light-purple {
+    background-color: var(--LightGrayishMagenta);
+    color: var(--VeryDarkMagenta);
+}
+
+.box {
+    width: clamp(20ch, 45vh, 100%);
+    padding: 2em;
+    border-radius: 0.5rem;
+}
+
+/* STYLES */
+
+/* about */
+.about {
+    width: clamp(20ch, 65vh, 100%);
+    text-align: center;
+}
+
+.about__title {
+    color: var(--VeryDarkMagenta);
+    font-size: 2.5rem;
+    margin-bottom: 0.8em;
+    font-weight: var(--BOLDER);
+}
+
+.about__text {
+    line-height: 1.5;
+    color: var(--DarkGrayishMagenta);
+    font-size: var(--FSB);
+    font-weight: var(--BOLD);
+}
+
+/* rating */
+
+.rating__box {
+    width: clamp(20ch, 46vh, 100%);
+    padding: 0.9em;
+    text-align: center;
+    font-size: var(--FSB);
+    font-weight: var(--BOLDER);
+    border-radius: 0.6rem;
+}
+.rating__stars {
+    display: flex;
+    gap: 0.3rem;
+    justify-content: center;
+}
+.rating__box p {
+    margin-top: 0.8em;
+}
+
+/* user */
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.7rem;
+}
+
+.user__img {
+    border-radius: 50%;
+}
+
+.user__name {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+    font-weight: var(--BOLD);
+}
+
+.verified {
+    color: var(--SoftPink);
+    font-weight: var(--BOLD);
+}
+
+.user__comment {
+    line-height: 1.4;
+}
+
+
+
+@media screen and (min-width: 1250px) {
+    /* GENERAL STYLES */
+    body {
+        background-image: url("/images/bg-pattern-top-desktop.svg"), url("/images/bg-pattern-bottom-desktop.svg");
+        gap: 0rem;
+    }
+    /* UTILS */
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0;
+        row-gap: 3rem;
+        width: 54%;
+        margin: 0 auto;
+    }
+
+    .box {
+        height: fit-content;
+    }
+
+    .columns {
+        grid-column-start: 1 ;
+        grid-column-end: 3;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    /* about */
+    .about {
+        padding-right: 20%;
+        text-align: left;
+    }
+
+    .about__title {
+        font-size: 3.5rem;
+    }
+
+    /* RATING */
+    .rating__box {
+        display: flex;
+        height: fit-content;
+        padding: 1em;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .rating__box p {
+        margin-top: 0;
+    }
+
+  
+
+
+    /* making stairs effect */
+
+    .rating__box:nth-child(2) {
+        margin-left: calc(var(--offset));
+    }
+
+    .rating__box:nth-child(3) {
+        margin-left: calc(2 * var(--offset));
+    }
+
+    .box:nth-child(2) {
+        margin-top: calc(var(--offsetColumns));
+    }
+
+    .box:nth-child(3) {
+        margin-top: calc(2 * var(--offsetColumns));
+    }
+}
