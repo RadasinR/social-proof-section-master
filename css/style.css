@@ -60,7 +60,7 @@ body {
 .grid {
     display: grid;
     gap: 5rem;
-    width: 90%;
+    width: 100%;
     margin-top: 10%;
    justify-items: center;
 }
